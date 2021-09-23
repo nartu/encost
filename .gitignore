@@ -1,0 +1,8 @@
+*.rar
+__pycache__
+build
+sys
+*.spec
+.~*
+db_init
+.fuse_*
