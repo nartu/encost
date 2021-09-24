@@ -16,7 +16,7 @@ if len(sys.argv)>1:
 else:
     file = PurePath(ROOT_DIR, '1. upload_names', 'названия точек.xlsm')
 
-print(file)
+# print(file)
 # endpoints_file = PurePath(ROOT_DIR, '1. upload_names', 'названия точек.xlsm')
 # p2  = PurePath(ROOT_DIR).joinpath('2. create_view_task').joinpath('periods.csv')
 

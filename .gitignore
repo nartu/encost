@@ -6,3 +6,4 @@ sys
 .~*
 db_init
 .fuse_*
+2. create_view_task/sand.py
