@@ -18,9 +18,14 @@
 
 ## Решение
 
-1. Работаю под линукс, пока что аналогичного функционала не сделала.
-2. Есть. Используются сторонние библиотеки openpyxl, sqlalchemy, pathlib
-3. По адресу `dist/upload`, но он опять же под линукс. Сделан с помощью библиотеки pyinstaller
+1. Макрос для Libreoffice в файле `libreoffice_macros.vba`, кнопка работает, но в xlsm формате не сохраняется :(
+2. Есть. Используются сторонние библиотеки openpyxl, sqlalchemy, pathlib, urllib.parse
+3. Бинарный файл `dist/upload`, но он под линукс. Сделан с помощью библиотеки pyinstaller
 ```
 pyinstaller -F upload.py
 ```
+
+4. БД postgressql запускается из docker `docker-compose up -d`, остановка `docker-compose down`, данные не сохраняются
+5. python скрипты запускаются из виртуального окружение, создать `virtualenv vs`,
+    запуск виртуального окружения `source vs/bin/activate`
+    установка зависимостей `pip install -r requirements.txt`

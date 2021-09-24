@@ -5,23 +5,25 @@ from sqlalchemy.exc import OperationalError
 from openpyxl import load_workbook
 from openpyxl.utils.exceptions import InvalidFileException
 from pathlib import Path, PurePath
+from urllib.parse import unquote
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
+
 if len(sys.argv)>1:
-    file = sys.argv[1]
-    if not Path(file).exists():
-        print(f"File {file} does not exist!")
+    raw_file_name = sys.argv[1]
+    raw_file_name = raw_file_name[7:] if raw_file_name[:7] == 'file://' else raw_file_name
+    file_name = unquote(raw_file_name)
+    if not Path(file_name).exists():
+        print(f"File {filefile_name} does not exist!")
         sys.exit(0)
 else:
-    file = PurePath(ROOT_DIR, '1. upload_names', 'названия точек.xlsm')
-
-# print(file)
-# endpoints_file = PurePath(ROOT_DIR, '1. upload_names', 'названия точек.xlsm')
-# p2  = PurePath(ROOT_DIR).joinpath('2. create_view_task').joinpath('periods.csv')
+    print("Mast be argument: fullpath of file .xlsx,.xlsm,.xltx,.xltm")
+    # file = PurePath(ROOT_DIR, '1. upload_names', 'названия точек.xlsm')
+    sys.exit(0)
 
 try:
-    wb = load_workbook(file)
+    wb = load_workbook(file_name)
 except InvalidFileException as e:
     print("Поддерживаемые форматы: .xlsx,.xlsm,.xltx,.xltm")
     print(e)
